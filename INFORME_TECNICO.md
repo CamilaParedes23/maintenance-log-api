@@ -1,7 +1,7 @@
-# 📋 REPORTE EJECUTIVO TÉCNICO - API RESTful MaintenanceLog
+# REPORTE EJECUTIVO TÉCNICO - API RESTful MaintenanceLog
 
 <div style="text-align: center; page-break-after: always;">
-  <h1>🔧 REPORTE EJECUTIVO TÉCNICO</h1>
+  <h1>REPORTE EJECUTIVO TÉCNICO</h1>
   <h2>API RESTful MaintenanceLog</h2>
   <br>
   <h3>Sistema de Gestión de Logs de Mantenimiento</h3>
@@ -21,17 +21,17 @@
 Se desarrolló exitosamente una **API RESTful completa** para la gestión de logs de mantenimiento, implementando un sistema robusto que permite realizar operaciones CRUD (Create, Read, Update, Delete) sobre registros de mantenimiento. El sistema fue desarrollado utilizando **Spring Boot 4.0.0** con **Java 17**, **MySQL 8.0** como base de datos y **Docker** para la containerización.
 
 ### Objetivos Alcanzados
-- ✅ **API RESTful Funcional**: 9 endpoints implementados y probados
-- ✅ **Arquitectura Professional**: Patrón de capas bien estructurado  
-- ✅ **Containerización**: Aplicación dockerizada sin docker-compose
-- ✅ **Base de Datos**: MySQL integrado con contenedores separados
-- ✅ **Documentación**: Completa con colección Postman funcional
-- ✅ **Calidad**: Validaciones robustas y manejo de errores
+- **API RESTful Funcional**: 9 endpoints implementados y probados
+- **Arquitectura Professional**: Patrón de capas bien estructurado  
+- **Containerización**: Aplicación dockerizada sin docker-compose
+- **Base de Datos**: MySQL integrado con contenedores separados
+- **Documentación**: Completa con colección Postman funcional
+- **Calidad**: Validaciones robustas y manejo de errores
 
 ### Valor del Proyecto
 Este sistema representa una **solución enterprise-ready** que puede ser utilizada como base para sistemas de gestión de mantenimiento a gran escala, demostrando dominio en tecnologías modernas de desarrollo backend.
 
-## 📊 INFORMACIÓN DEL PROYECTO
+## INFORMACIÓN DEL PROYECTO
 
 | Campo | Valor |
 |-------|--------|
@@ -43,16 +43,16 @@ Este sistema representa una **solución enterprise-ready** que puede ser utiliza
 | **Base de Datos** | MySQL 8.0 |
 | **Containerización** | Docker Standalone (sin docker-compose) |
 | **Fecha** | Diciembre 2024 |
-| **Estado** | ✅ COMPLETADO |
+| **Estado** | COMPLETADO |
 
 ---
 
-## 🎯 OBJETIVOS CUMPLIDOS
+## OBJETIVOS CUMPLIDOS
 
-### ✅ Objetivo Principal
+### Objetivo Principal
 Diseñar, implementar, dockerizar y documentar una API RESTful completa para la gestión de logs de mantenimiento, aplicando principios REST, buenas prácticas de desarrollo y containerización.
 
-### ✅ Objetivos Específicos
+### Objetivos Específicos
 1. **CRUD Completo**: Implementar operaciones Create, Read, Update, Delete
 2. **Arquitectura REST**: Aplicar principios y convenciones RESTful
 3. **Persistencia**: Configurar base de datos MySQL con JPA/Hibernate
@@ -63,7 +63,7 @@ Diseñar, implementar, dockerizar y documentar una API RESTful completa para la 
 
 ---
 
-## 🏗️ ARQUITECTURA IMPLEMENTADA
+## ARQUITECTURA IMPLEMENTADA
 
 ### Patrón Arquitectónico: Layered Architecture
 
@@ -111,7 +111,7 @@ Diseñar, implementar, dockerizar y documentar una API RESTful completa para la 
 
 ---
 
-## 📊 ENTIDAD MAINTENANCELOG
+## ENTIDAD MAINTENANCELOG
 
 ### Estructura de Datos
 
@@ -158,7 +158,7 @@ public class MaintenanceLog {
 
 ---
 
-## 🌐 ENDPOINTS API REST
+## ENDPOINTS API REST
 
 ### Base URL: `http://localhost:8080/api/v1/maintenance-logs`
 
@@ -192,7 +192,7 @@ public class MaintenanceLog {
 
 ---
 
-## 🔧 TECNOLOGÍAS Y DEPENDENCIAS
+## TECNOLOGÍAS Y DEPENDENCIAS
 
 ### Stack Tecnológico
 
@@ -220,7 +220,7 @@ dependencies {
 
 ---
 
-## 🐳 CONTAINERIZACIÓN
+## CONTAINERIZACIÓN
 
 ### Arquitectura Docker Standalone
 
@@ -278,7 +278,7 @@ CMD ["java", "-jar", "build/libs/Paredes_MaintenanceLog-0.0.1-SNAPSHOT.jar"]
 
 ---
 
-## ✅ VALIDACIONES IMPLEMENTADAS
+## VALIDACIONES IMPLEMENTADAS
 
 ### Bean Validation (JSR-303)
 
@@ -315,7 +315,7 @@ public class GlobalExceptionHandler {
 
 ---
 
-## 🧪 TESTING Y CALIDAD
+## TESTING Y CALIDAD
 
 ### Colección Postman Completa
 
@@ -341,13 +341,13 @@ public class GlobalExceptionHandler {
 
 ### Métricas de Calidad
 
-- ✅ **Compilación**: Sin errores ni warnings críticos
-- ✅ **Funcionalidad**: Todos los endpoints operativos  
-- ✅ **Validación**: Entrada y salida validadas
+- **Compilación**: Sin errores ni warnings críticos
+- **Funcionalidad**: Todos los endpoints operativos  
+- **Validación**: Entrada y salida validadas
 
 ---
 
-## 📸 EVIDENCIAS DE DOCKER (API + BASE DE DATOS)
+## EVIDENCIAS DE DOCKER (API + BASE DE DATOS)
 
 ### Construcción de Imagen de la API
 
@@ -438,7 +438,7 @@ docker network inspect maintenance-network
 
 ---
 
-## 🧪 EVIDENCIAS DE PRUEBAS CON POSTMAN
+## EVIDENCIAS DE PRUEBAS CON POSTMAN
 
 ### Colección Postman Completa
 
@@ -447,21 +447,21 @@ docker network inspect maintenance-network
 ### Estructura de Pruebas
 
 ```
-📁 MaintenanceLog API Collection
-├── 📄 1. Create Maintenance Log      ✅ PASSED
-├── 📄 2. Get All Maintenance Logs    ✅ PASSED  
-├── 📄 3. Get Maintenance Log by ID   ✅ PASSED
-├── 📄 4. Update Maintenance Log      ✅ PASSED
-├── 📄 5. Delete Maintenance Log      ✅ PASSED
-├── 📁 Search Operations
-│   ├── 📄 Search by Status           ✅ PASSED
-│   ├── 📄 Search by Technician       ✅ PASSED
-│   ├── 📄 Search by Date Range       ✅ PASSED
-│   └── 📄 Search by Title            ✅ PASSED
-├── 📁 Validation Tests
-│   ├── 📄 Create with Invalid Data   ✅ PASSED (400 Error)
-│   └── 📄 Get Non-existent ID        ✅ PASSED (404 Error)
-└── 📄 Cleanup - Delete Test Data     ✅ PASSED
+MaintenanceLog API Collection
+├── 1. Create Maintenance Log      PASSED
+├── 2. Get All Maintenance Logs    PASSED  
+├── 3. Get Maintenance Log by ID   PASSED
+├── 4. Update Maintenance Log      PASSED
+├── 5. Delete Maintenance Log      PASSED
+├── Search Operations
+│   ├── Search by Status           PASSED
+│   ├── Search by Technician       PASSED
+│   ├── Search by Date Range       PASSED
+│   └── Search by Title            PASSED
+├── Validation Tests
+│   ├── Create with Invalid Data   PASSED (400 Error)
+│   └── Get Non-existent ID        PASSED (404 Error)
+└── Cleanup - Delete Test Data     PASSED
 ```
 
 ### Tests Automatizados
@@ -503,15 +503,15 @@ pm.test("Error message exists", function () {
 ### Resultados de Ejecución
 
 ```
-📊 Test Results Summary:
-├── 🟢 Total Requests: 13
-├── 🟢 Passed Tests: 39/39
-├── 🟢 Failed Tests: 0
-├── 🟢 Skipped Tests: 0
-├── ⏱️ Total Duration: 1.2 seconds
-└── 📈 Success Rate: 100%
+Test Results Summary:
+├── Total Requests: 13
+├── Passed Tests: 39/39
+├── Failed Tests: 0
+├── Skipped Tests: 0
+├── Total Duration: 1.2 seconds
+└── Success Rate: 100%
 
-📈 Response Time Analysis:
+Response Time Analysis:
 ├── Average: 145ms
 ├── Min: 45ms  
 ├── Max: 387ms
@@ -539,7 +539,7 @@ pm.test("Error message exists", function () {
 
 ---
 
-## 💻 CÓDIGO RELEVANTE Y EXPLICACIONES
+## CÓDIGO RELEVANTE Y EXPLICACIONES
 
 ### 1. Entidad Principal - MaintenanceLog.java
 
@@ -579,7 +579,7 @@ public class MaintenanceLog {
 }
 ```
 
-**🔧 Explicación Técnica:**
+**Explicación Técnica:**
 - **@Entity**: Marca la clase como entidad JPA para mapeo objeto-relacional
 - **@GeneratedValue**: Configuración de auto-incremento para el ID
 - **@Enumerated(EnumType.STRING)**: Almacena el enum como string para legibilidad
@@ -629,7 +629,7 @@ public class MaintenanceLogController {
 }
 ```
 
-**🔧 Explicación Técnica:**
+**Explicación Técnica:**
 - **@RestController**: Combina @Controller + @ResponseBody para REST
 - **@RequestMapping**: Define la base URL para todos los endpoints
 - **@Valid**: Activa la validación automática de Bean Validation
@@ -684,7 +684,7 @@ public class MaintenanceLogServiceImpl implements MaintenanceLogService {
 }
 ```
 
-**🔧 Explicación Técnica:**
+**Explicación Técnica:**
 - **@Service**: Marca la clase como componente de servicio de Spring
 - **@Transactional**: Garantiza transacciones ACID en operaciones de base de datos
 - **Dependency Injection**: Inyección automática de dependencias
@@ -713,7 +713,7 @@ public interface MaintenanceLogRepository extends JpaRepository<MaintenanceLog, 
 }
 ```
 
-**🔧 Explicación Técnica:**
+**Explicación Técnica:**
 - **JpaRepository**: Hereda operaciones CRUD básicas y paginación
 - **Query Methods**: Spring genera automáticamente queries basadas en nombres de métodos
 - **@Query**: Permite definir queries JPQL personalizadas
@@ -747,7 +747,7 @@ public class MaintenanceLogCreateDTO {
 }
 ```
 
-**🔧 Explicación Técnica:**
+**Explicación Técnica:**
 - **Bean Validation**: Validaciones declarativas con anotaciones JSR-303
 - **@NotBlank**: Valida que el campo no sea null, vacío o solo espacios
 - **@Size**: Controla la longitud mínima y máxima
@@ -798,7 +798,7 @@ public class GlobalExceptionHandler {
 }
 ```
 
-**🔧 Explicación Técnica:**
+**Explicación Técnica:**
 - **@RestControllerAdvice**: Manejo global de excepciones para todos los controladores
 - **@ExceptionHandler**: Define qué método maneja cada tipo de excepción
 - **Estructura de Error Estándar**: Respuestas consistentes para todos los errores
@@ -830,7 +830,7 @@ logging.level.org.springframework.web=INFO
 logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} - %msg%n
 ```
 
-**🔧 Explicación Técnica:**
+**Explicación Técnica:**
 - **ddl-auto=update**: Actualiza automáticamente el esquema de BD
 - **show-sql=true**: Muestra las queries SQL generadas para debugging
 - **Context Path**: Configuración de la ruta base de la aplicación
@@ -840,35 +840,35 @@ logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} - %msg%n
 
 ---
 
-## 📊 DISEÑO REST APLICADO
+## DISEÑO REST APLICADO
 
 ### Principios REST Implementados
 
 #### 1. **Arquitectura Cliente-Servidor**
-- ✅ **Separación clara**: Cliente (Postman/Frontend) y servidor (Spring Boot API) independientes
-- ✅ **Stateless**: El servidor no almacena estado del cliente entre requests
-- ✅ **Interfaz uniforme**: Comunicación estándar a través de HTTP/HTTPS
+- **Separación clara**: Cliente (Postman/Frontend) y servidor (Spring Boot API) independientes
+- **Stateless**: El servidor no almacena estado del cliente entre requests
+- **Interfaz uniforme**: Comunicación estándar a través de HTTP/HTTPS
 
 #### 2. **Stateless (Sin Estado)**
-- ✅ **Cada request es independiente**: Contiene toda la información necesaria
-- ✅ **No se mantiene sesión**: Mejora la escalabilidad horizontal
-- ✅ **Cacheable**: Responses pueden ser cacheadas por proxies/clientes
+- **Cada request es independiente**: Contiene toda la información necesaria
+- **No se mantiene sesión**: Mejora la escalabilidad horizontal
+- **Cacheable**: Responses pueden ser cacheadas por proxies/clientes
 
 #### 3. **Cache-able**
-- ✅ **Headers HTTP apropiados**: Cache-Control, ETag para optimización
-- ✅ **GET requests idempotentes**: Pueden ser cacheadas sin efectos secundarios
-- ✅ **Versionado**: Permite invalidación de cache por versiones
+- **Headers HTTP apropiados**: Cache-Control, ETag para optimización
+- **GET requests idempotentes**: Pueden ser cacheadas sin efectos secundarios
+- **Versionado**: Permite invalidación de cache por versiones
 
 #### 4. **Interfaz Uniforme**
-- ✅ **Identificación de recursos**: URIs descriptivas y consistentes
-- ✅ **Representación estándar**: JSON como formato de intercambio
-- ✅ **Mensajes autodescriptivos**: Headers y status codes informativos
-- ✅ **HATEOAS ready**: Preparado para enlaces hipermedia
+- **Identificación de recursos**: URIs descriptivas y consistentes
+- **Representación estándar**: JSON como formato de intercambio
+- **Mensajes autodescriptivos**: Headers y status codes informativos
+- **HATEOAS ready**: Preparado para enlaces hipermedia
 
 #### 5. **Sistema en Capas**
-- ✅ **Arquitectura multicapa**: Controller → Service → Repository → Database
-- ✅ **Separación de responsabilidades**: Cada capa con función específica
-- ✅ **Transparencia**: Cliente no necesita conocer la implementación interna
+- **Arquitectura multicapa**: Controller → Service → Repository → Database
+- **Separación de responsabilidades**: Cada capa con función específica
+- **Transparencia**: Cliente no necesita conocer la implementación interna
 
 ### Convenciones REST Aplicadas
 
@@ -878,43 +878,43 @@ logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} - %msg%n
 /api/v1/maintenance-logs
 
 # Operaciones CRUD Estándar
-✅ GET    /api/v1/maintenance-logs           # Colección completa
-✅ POST   /api/v1/maintenance-logs           # Crear nuevo recurso
-✅ GET    /api/v1/maintenance-logs/{id}      # Recurso específico
-✅ PUT    /api/v1/maintenance-logs/{id}      # Actualizar recurso
-✅ DELETE /api/v1/maintenance-logs/{id}      # Eliminar recurso
+GET    /api/v1/maintenance-logs           # Colección completa
+POST   /api/v1/maintenance-logs           # Crear nuevo recurso
+GET    /api/v1/maintenance-logs/{id}      # Recurso específico
+PUT    /api/v1/maintenance-logs/{id}      # Actualizar recurso
+DELETE /api/v1/maintenance-logs/{id}      # Eliminar recurso
 
 # Sub-recursos y Filtros
-✅ GET    /api/v1/maintenance-logs/status/{status}
-✅ GET    /api/v1/maintenance-logs/technician/{name}
-✅ GET    /api/v1/maintenance-logs/search?title={title}
-✅ GET    /api/v1/maintenance-logs/date-range?startDate={date}&endDate={date}
+GET    /api/v1/maintenance-logs/status/{status}
+GET    /api/v1/maintenance-logs/technician/{name}
+GET    /api/v1/maintenance-logs/search?title={title}
+GET    /api/v1/maintenance-logs/date-range?startDate={date}&endDate={date}
 ```
 
 #### **Métodos HTTP Semánticamente Correctos**
 
 | Método | Semántica | Idempotente | Seguro | Cache-able | Uso en API |
 |--------|-----------|-------------|--------|------------|------------|
-| **GET** | Obtener recurso | ✅ | ✅ | ✅ | Consultas y búsquedas |
-| **POST** | Crear recurso | ❌ | ❌ | ❌ | Crear nuevos logs |
-| **PUT** | Actualizar completo | ✅ | ❌ | ❌ | Modificar logs existentes |
-| **DELETE** | Eliminar recurso | ✅ | ❌ | ❌ | Borrar logs |
+| **GET** | Obtener recurso | Si | Si | Si | Consultas y búsquedas |
+| **POST** | Crear recurso | No | No | No | Crear nuevos logs |
+| **PUT** | Actualizar completo | Si | No | No | Modificar logs existentes |
+| **DELETE** | Eliminar recurso | Si | No | No | Borrar logs |
 
 #### **Status Codes HTTP Apropiados**
 
 ```http
 # Responses Exitosos
-✅ 200 OK              # GET exitoso con datos
-✅ 201 Created          # POST exitoso, recurso creado
-✅ 204 No Content       # DELETE exitoso, sin contenido
+200 OK              # GET exitoso con datos
+201 Created          # POST exitoso, recurso creado
+204 No Content       # DELETE exitoso, sin contenido
 
 # Errores del Cliente (4xx)
-✅ 400 Bad Request      # Datos de entrada inválidos
-✅ 404 Not Found        # Recurso no encontrado
-✅ 422 Unprocessable    # Error de lógica de negocio
+400 Bad Request      # Datos de entrada inválidos
+404 Not Found        # Recurso no encontrado
+422 Unprocessable    # Error de lógica de negocio
 
 # Errores del Servidor (5xx)
-✅ 500 Internal Error   # Error interno no manejado
+500 Internal Error   # Error interno no manejado
 ```
 
 #### **Headers HTTP Estándar**
@@ -927,9 +927,9 @@ X-Content-Type-Options: nosniff
 
 #### **Versionado de API**
 ```http
-✅ URI Versioning: /api/v1/maintenance-logs
-✅ Backward Compatibility: Preparado para /api/v2/
-✅ Deprecation Strategy: Headers de advertencia para versiones obsoletas
+URI Versioning: /api/v1/maintenance-logs
+Backward Compatibility: Preparado para /api/v2/
+Deprecation Strategy: Headers de advertencia para versiones obsoletas
 ```
 
 ### **Patrones RESTful Avanzados Implementados**
@@ -978,29 +978,29 @@ GET /api/v1/maintenance-logs/date-range?startDate=2024-01-01&endDate=2024-12-31
 
 ### **Mejores Prácticas REST Aplicadas**
 
-#### ✅ **Naming Conventions**
+#### **Naming Conventions**
 - Recursos en plural: `maintenance-logs` (no `maintenanceLog`)
 - URLs en lowercase con guiones: `maintenance-logs` (no `MaintenanceLogs`)
 - Verbos en URLs solo para acciones no-CRUD: `/api/v1/maintenance-logs/search`
 
-#### ✅ **Content Negotiation**
+#### **Content Negotiation**
 - Soporte para `application/json`
 - Headers `Accept` y `Content-Type` apropiados
 - Charset UTF-8 explícito
 
-#### ✅ **Error Handling Robusto**
+#### **Error Handling Robusto**
 - Códigos de estado HTTP precisos
 - Mensajes de error descriptivos pero no revelan información sensible
 - Estructura de error consistente en toda la API
 
-#### ✅ **Validation y Constraints**
+#### **Validation y Constraints**
 - Validación en el nivel de entrada (DTO)
 - Mensajes de validación localizados
 - Constraints de base de datos reflejados en la API
 
 ---
 
-## 📈 RENDIMIENTO Y ESCALABILIDAD
+## RENDIMIENTO Y ESCALABILIDAD
 
 ### **Optimizaciones Implementadas**
 
@@ -1016,19 +1016,19 @@ GET /api/v1/maintenance-logs/date-range?startDate=2024-01-01&endDate=2024-12-31
 
 #### **Tiempos de Respuesta**
 ```
-📊 Response Times (ambiente de desarrollo):
+Response Times (ambiente de desarrollo):
 ├── GET /maintenance-logs          : ~50-80ms
 ├── GET /maintenance-logs/{id}     : ~30-50ms  
 ├── POST /maintenance-logs         : ~100-150ms
 ├── PUT /maintenance-logs/{id}     : ~80-120ms
 └── DELETE /maintenance-logs/{id}  : ~40-60ms
 
-🎯 SLA Objetivo Producción: < 200ms (P95)
+SLA Objetivo Producción: < 200ms (P95)
 ```
 
 #### **Throughput y Concurrencia**
 ```
-📈 Concurrent Users (hardware estándar):
+Concurrent Users (hardware estándar):
 ├── Máximo teórico    : ~1,000 req/min
 ├── Recomendado       : ~500 req/min  
 ├── Con load balancer : ~2,000+ req/min
@@ -1037,13 +1037,13 @@ GET /api/v1/maintenance-logs/date-range?startDate=2024-01-01&endDate=2024-12-31
 
 #### **Recursos del Sistema**
 ```
-💾 Memory Usage:
+Memory Usage:
 ├── JVM Heap inicial  : 256MB
 ├── JVM Heap máximo   : 512MB
 ├── Native memory     : ~100MB
 └── Database pool     : ~50MB
 
-⚡ CPU Usage:
+CPU Usage:
 ├── En reposo         : <5%
 ├── Carga normal      : 15-25%
 ├── Picos de carga    : 60-80%
@@ -1054,7 +1054,7 @@ GET /api/v1/maintenance-logs/date-range?startDate=2024-01-01&endDate=2024-12-31
 
 #### **Escalado Horizontal**
 ```
-🔄 Horizontal Scaling Strategy:
+Horizontal Scaling Strategy:
 ├── Load Balancer (nginx/HAProxy)
 ├── Multiple API instances
 ├── Shared database (MySQL Master-Slave)
@@ -1063,7 +1063,7 @@ GET /api/v1/maintenance-logs/date-range?startDate=2024-01-01&endDate=2024-12-31
 
 #### **Escalado Vertical**
 ```
-⬆️ Vertical Scaling Options:
+Vertical Scaling Options:
 ├── Aumentar heap JVM: -Xmx1g -Xms512m
 ├── Más CPU cores para thread pools
 ├── SSD storage para database
@@ -1072,11 +1072,11 @@ GET /api/v1/maintenance-logs/date-range?startDate=2024-01-01&endDate=2024-12-31
 
 ---
 
-## 🔐 CONSIDERACIONES DE SEGURIDAD
+## CONSIDERACIONES DE SEGURIDAD
 
 ### **Seguridad Implementada**
 
-#### ✅ **Input Validation**
+#### **Input Validation**
 ```java
 // Bean Validation exhaustiva en DTOs
 @NotBlank(message = "El título es obligatorio")
@@ -1088,14 +1088,14 @@ private String title;
 private LocalDate date;
 ```
 
-#### ✅ **SQL Injection Prevention**
+#### **SQL Injection Prevention**
 ```java
 // JPA/Hibernate con PreparedStatements automáticas
 @Query("SELECT m FROM MaintenanceLog m WHERE m.status = :status")
 List<MaintenanceLog> findByStatus(@Param("status") MaintenanceStatus status);
 ```
 
-#### ✅ **Error Handling Seguro**
+#### **Error Handling Seguro**
 ```java
 // No exposición de información sensible
 @ExceptionHandler(Exception.class)
@@ -1108,7 +1108,7 @@ public ResponseEntity<ErrorResponse> handleGenericError(Exception ex) {
 
 ### **Recomendaciones para Producción**
 
-#### 🔒 **Autenticación y Autorización**
+#### **Autenticación y Autorización**
 ```yaml
 Implementar:
   - JWT/OAuth2 Authentication
@@ -1117,7 +1117,7 @@ Implementar:
   - Session timeout policies
 ```
 
-#### 🔒 **Comunicación Segura**
+#### **Comunicación Segura**
 ```yaml
 SSL/TLS Configuration:
   - HTTPS obligatorio (puerto 443)
@@ -1126,7 +1126,7 @@ SSL/TLS Configuration:
   - Cipher suites seguros
 ```
 
-#### 🔒 **Rate Limiting y Throttling**
+#### **Rate Limiting y Throttling**
 ```yaml
 Rate Limiting:
   - 100 req/min por IP
@@ -1135,7 +1135,7 @@ Rate Limiting:
   - DDoS protection
 ```
 
-#### 🔒 **Monitoring y Auditoría**
+#### **Monitoring y Auditoría**
 ```yaml
 Security Monitoring:
   - Logs de acceso completos
@@ -1146,49 +1146,49 @@ Security Monitoring:
 
 ---
 
-## 📋 CONCLUSIONES
+## CONCLUSIONES
 
-### **✅ Objetivos Cumplidos al 100%**
+### **Objetivos Cumplidos al 100%**
 
 El proyecto **MaintenanceLog API RESTful** ha sido desarrollado exitosamente, cumpliendo y superando todos los objetivos planteados inicialmente:
 
-#### **1. ✅ API RESTful Completa y Funcional**
+#### **1. API RESTful Completa y Funcional**
 - **9 endpoints REST** implementados siguiendo estrictamente las convenciones HTTP
 - **Arquitectura stateless** que permite escalabilidad horizontal
 - **Versionado de API** preparado para evolución futura
 - **Error handling robusto** con códigos HTTP apropiados
 
-#### **2. ✅ CRUD Completo con Validaciones Avanzadas**
+#### **2. CRUD Completo con Validaciones Avanzadas**
 - **Operaciones CRUD** completas para la entidad MaintenanceLog
 - **Bean Validation JSR-303** para validación declarativa
 - **Manejo de excepciones centralizado** con @RestControllerAdvice
 - **Logging detallado** para trazabilidad completa
 
-#### **3. ✅ Arquitectura Profesional y Escalable**
+#### **3. Arquitectura Profesional y Escalable**
 - **Patrón Layered Architecture** con separación clara de responsabilidades
 - **Dependency Injection** con Spring Boot para bajo acoplamiento
 - **DTO Pattern** para optimización de transferencia de datos
 - **Repository Pattern** para abstracción del acceso a datos
 
-#### **4. ✅ Containerización Docker Sin Dependencias**
+#### **4. Containerización Docker Sin Dependencias**
 - **Docker standalone** eliminando dependencia de docker-compose
 - **Multi-stage build** optimizado para producción
 - **Networking** Docker personalizado para comunicación entre contenedores
 - **Configuración flexible** via variables de entorno
 
-#### **5. ✅ Base de Datos MySQL Completamente Integrada**
+#### **5. Base de Datos MySQL Completamente Integrada**
 - **JPA/Hibernate** con mapeo objeto-relacional optimizado
 - **Query methods** automáticas y queries JPQL personalizadas
 - **Connection pooling** HikariCP para performance
 - **Schema evolution** con Hibernate DDL auto-update
 
-#### **6. ✅ Documentación y Testing Exhaustivos**
+#### **6. Documentación y Testing Exhaustivos**
 - **Colección Postman** completa con 13 casos de prueba
 - **Tests automatizados** con assertions de validación
 - **Documentación técnica** detallada y profesional
 - **Guías de despliegue** paso a paso
 
-### **🎯 Logros Técnicos Destacados**
+### **Logros Técnicos Destacados**
 
 #### **Calidad de Código Superior**
 - **1,200+ líneas de código** Java bien estructuradas y documentadas
@@ -1208,7 +1208,7 @@ El proyecto **MaintenanceLog API RESTful** ha sido desarrollado exitosamente, cu
 - **Configuración externalizada** para múltiples entornos
 - **Logging estructurado** para debugging y monitoreo
 
-### **📊 Impacto y Valor del Proyecto**
+### **Impacto y Valor del Proyecto**
 
 #### **Valor Académico**
 - **Dominio completo** de Spring Boot ecosystem
@@ -1230,11 +1230,11 @@ El proyecto **MaintenanceLog API RESTful** ha sido desarrollado exitosamente, cu
 
 ---
 
-## 🚀 RECOMENDACIONES
+## RECOMENDACIONES
 
 ### **Mejoras Inmediatas Prioritarias**
 
-#### **1. 🔒 Seguridad (Crítica)**
+#### **1. Seguridad (Crítica)**
 ```yaml
 Autenticación:
   - Implementar JWT/OAuth2 authentication
@@ -1249,7 +1249,7 @@ Comunicación Segura:
   - Request/response encryption
 ```
 
-#### **2. ⚡ Performance (Alta)**
+#### **2. Performance (Alta)**
 ```yaml
 Caching:
   - Redis para cache de consultas frecuentes
@@ -1264,7 +1264,7 @@ Database Optimization:
   - Database partitioning para datos históricos
 ```
 
-#### **3. 📊 Observabilidad (Alta)**
+#### **3. Observabilidad (Alta)**
 ```yaml
 Monitoring:
   - Prometheus + Grafana para métricas
@@ -1281,7 +1281,7 @@ Logging:
 
 ### **Extensiones Funcionales Recomendadas**
 
-#### **1. 🎨 Frontend Web Application**
+#### **1. Frontend Web Application**
 ```yaml
 Technology Stack:
   - React.js/Vue.js para SPA moderna
@@ -1296,7 +1296,7 @@ Features:
   - Export/import data functionality
 ```
 
-#### **2. 📱 Mobile Application**
+#### **2. Mobile Application**
 ```yaml
 Approach:
   - React Native/Flutter para cross-platform
@@ -1305,7 +1305,7 @@ Approach:
   - Barcode scanning para equipment tracking
 ```
 
-#### **3. 🔧 Funcionalidades Avanzadas**
+#### **3. Funcionalidades Avanzadas**
 ```yaml
 Business Logic:
   - Automated maintenance scheduling
@@ -1322,7 +1322,7 @@ Workflow:
 
 ### **Evolución Arquitectónica**
 
-#### **1. 🏗️ Microservices Architecture**
+#### **1. Microservices Architecture**
 ```yaml
 Service Decomposition:
   - Maintenance Service (actual API)
@@ -1338,7 +1338,7 @@ Infrastructure:
   - Distributed tracing con Jaeger
 ```
 
-#### **2. ☁️ Cloud Native Deployment**
+#### **2. Cloud Native Deployment**
 ```yaml
 Container Orchestration:
   - Kubernetes cluster para alta disponibilidad
@@ -1353,7 +1353,7 @@ Cloud Services:
   - AWS Lambda/Azure Functions para serverless tasks
 ```
 
-#### **3. 🔄 CI/CD Pipeline Advanced**
+#### **3. CI/CD Pipeline Advanced**
 ```yaml
 Pipeline Stages:
   - Code quality checks (SonarQube)
@@ -1371,7 +1371,7 @@ Tools:
 
 ### **Consideraciones de Producción Enterprise**
 
-#### **📋 Compliance y Governance**
+#### **Compliance y Governance**
 ```yaml
 Data Governance:
   - GDPR/privacy compliance para user data
@@ -1386,7 +1386,7 @@ Standards:
   - REST maturity level 3 (HATEOAS)
 ```
 
-#### **💼 Enterprise Integration**
+#### **Enterprise Integration**
 ```yaml
 System Integration:
   - ERP integration (SAP, Oracle)
@@ -1403,7 +1403,7 @@ Data Migration:
 
 ---
 
-## 👨‍💻 INFORMACIÓN DEL AUTOR Y PROYECTO
+## INFORMACIÓN DEL AUTOR Y PROYECTO
 
 ### **Datos del Desarrollador**
 ```yaml
@@ -1458,52 +1458,52 @@ Tools & Practices:
 
 ---
 
-## 📄 ANEXOS
+## ANEXOS
 
 ### **A. Estructura Completa del Proyecto**
 ```
-📁 Paredes_MaintenanceLog/
-├── 📁 src/main/java/ec/edu/espe/paredes_maintenancelog/
-│   ├── 📄 ParedesMaintenanceLogApplication.java     # Main Spring Boot class
-│   ├── 📁 controller/
-│   │   └── 📄 MaintenanceLogController.java         # REST endpoints
-│   ├── 📁 service/
-│   │   ├── 📄 MaintenanceLogService.java            # Service interface
-│   │   └── 📁 impl/
-│   │       └── 📄 MaintenanceLogServiceImpl.java    # Service implementation
-│   ├── 📁 repository/
-│   │   └── 📄 MaintenanceLogRepository.java         # JPA repository
-│   ├── 📁 entity/
-│   │   └── 📄 MaintenanceLog.java                   # JPA entity
-│   ├── 📁 dto/
-│   │   ├── 📄 MaintenanceLogCreateDTO.java          # Create request DTO
-│   │   ├── 📄 MaintenanceLogUpdateDTO.java          # Update request DTO
-│   │   └── 📄 MaintenanceLogResponseDTO.java        # Response DTO
-│   ├── 📁 mapper/
-│   │   └── 📄 MaintenanceLogMapper.java             # Entity-DTO mapper
-│   └── 📁 exception/
-│       ├── 📄 GlobalExceptionHandler.java           # Global exception handling
-│       └── 📄 MaintenanceLogNotFoundException.java  # Custom exception
-├── 📁 src/main/resources/
-│   ├── 📄 application.properties                    # Application configuration
-│   ├── 📁 static/                                   # Static resources (empty)
-│   └── 📁 templates/                                # Templates (empty)
-├── 📁 src/test/java/                                # Test classes (basic)
-├── 📄 Dockerfile                                    # Docker configuration
-├── 📄 build.gradle                                  # Gradle build file
-├── 📄 settings.gradle                               # Gradle settings
-├── 📄 gradlew                                       # Gradle wrapper (Unix)
-├── 📄 MaintenanceLog-API-Postman-Collection.json    # Postman tests
-├── 📄 README.md                                     # Project documentation
-├── 📄 DEPLOYMENT.md                                 # Deployment guide
-├── 📄 HELP.md                                       # Help documentation
-├── 📄 INFORME_TECNICO.md                           # Technical report (this file)
-└── 📄 init.sql                                     # Database initialization
+Paredes_MaintenanceLog/
+├── src/main/java/ec/edu/espe/paredes_maintenancelog/
+│   ├── ParedesMaintenanceLogApplication.java     # Main Spring Boot class
+│   ├── controller/
+│   │   └── MaintenanceLogController.java         # REST endpoints
+│   ├── service/
+│   │   ├── MaintenanceLogService.java            # Service interface
+│   │   └── impl/
+│   │       └── MaintenanceLogServiceImpl.java    # Service implementation
+│   ├── repository/
+│   │   └── MaintenanceLogRepository.java         # JPA repository
+│   ├── entity/
+│   │   └── MaintenanceLog.java                   # JPA entity
+│   ├── dto/
+│   │   ├── MaintenanceLogCreateDTO.java          # Create request DTO
+│   │   ├── MaintenanceLogUpdateDTO.java          # Update request DTO
+│   │   └── MaintenanceLogResponseDTO.java        # Response DTO
+│   ├── mapper/
+│   │   └── MaintenanceLogMapper.java             # Entity-DTO mapper
+│   └── exception/
+│       ├── GlobalExceptionHandler.java           # Global exception handling
+│       └── MaintenanceLogNotFoundException.java  # Custom exception
+├── src/main/resources/
+│   ├── application.properties                    # Application configuration
+│   ├── static/                                   # Static resources (empty)
+│   └── templates/                                # Templates (empty)
+├── src/test/java/                                # Test classes (basic)
+├── Dockerfile                                    # Docker configuration
+├── build.gradle                                  # Gradle build file
+├── settings.gradle                               # Gradle settings
+├── gradlew                                       # Gradle wrapper (Unix)
+├── MaintenanceLog-API-Postman-Collection.json    # Postman tests
+├── README.md                                     # Project documentation
+├── DEPLOYMENT.md                                 # Deployment guide
+├── HELP.md                                       # Help documentation
+├── INFORME_TECNICO.md                           # Technical report (this file)
+└── init.sql                                     # Database initialization
 ```
 
 ### **B. Comandos de Referencia Rápida**
 
-#### **🐳 Docker Commands**
+#### **Docker Commands**
 ```bash
 # Setup completo
 docker network create maintenance-network
@@ -1535,7 +1535,7 @@ docker rm maintenance-api mysql-maintenance
 docker network rm maintenance-network
 ```
 
-#### **🔧 Development Commands**
+#### **Development Commands**
 ```bash
 # Compilación
 ./gradlew clean build
@@ -1552,7 +1552,7 @@ curl -X POST http://localhost:8080/api/v1/maintenance-logs \
 
 ### **C. URLs y Configuraciones de Referencia**
 
-#### **🌐 Endpoints de la API**
+#### **Endpoints de la API**
 ```http
 Base URL: http://localhost:8080/api/v1/maintenance-logs
 
@@ -1570,7 +1570,7 @@ GET    /search?title={title} # Buscar por título
 GET    /date-range?startDate={date}&endDate={date} # Rango de fechas
 ```
 
-#### **🔧 Configuraciones de Conexión**
+#### **Configuraciones de Conexión**
 ```properties
 # Database
 spring.datasource.url=jdbc:mysql://localhost:3306/maintenance_log_db
@@ -1585,34 +1585,34 @@ API Container: maintenance-api:8080
 
 ---
 
-## 🎯 REFLEXIÓN FINAL
+## REFLEXIÓN FINAL
 
 ### **Logros y Aprendizajes**
 
 Este proyecto representa **más que una simple asignación académica**; es una **demostración completa de competencias técnicas** que abarca desde el diseño arquitectónico hasta el deployment en producción. 
 
-#### **💡 Conocimientos Consolidados**
+#### **Conocimientos Consolidados**
 - **Arquitectura de software moderna** con patrones enterprise
 - **Desarrollo backend profesional** con Spring Boot ecosystem  
 - **Prácticas de DevOps** con containerización Docker
 - **API design** siguiendo estándares REST internacionales
 - **Documentación técnica** de nivel profesional
 
-#### **🚀 Preparación para el Mundo Laboral**
+#### **Preparación para el Mundo Laboral**
 Las tecnologías, patrones y metodologías aplicadas en este proyecto son **directamente transferibles al entorno laboral**, preparando al desarrollador para:
 - Proyectos enterprise de mediana/gran escala
 - Equipos de desarrollo ágiles y colaborativos
 - Arquitecturas cloud-native y microservicios
 - Roles de backend developer, full-stack, o DevOps engineer
 
-#### **📈 Escalabilidad del Conocimiento**
+#### **Escalabilidad del Conocimiento**
 La base sólida establecida permite evolucionar hacia:
 - Arquitecturas de microservicios complejas
 - Aplicaciones cloud-native en AWS/Azure
 - Sistemas distribuidos de alta concurrencia
 - Roles de arquitecto de software o tech lead
 
-### **🎓 Valor Académico y Profesional**
+### **Valor Académico y Profesional**
 
 Este **Reporte Ejecutivo Técnico** no solo documenta el trabajo realizado, sino que demuestra:
 - **Capacidad de análisis y síntesis** técnica
@@ -1622,23 +1622,23 @@ Este **Reporte Ejecutivo Técnico** no solo documenta el trabajo realizado, sino
 
 ---
 
-**🏆 PROYECTO COMPLETADO EXITOSAMENTE**
+**PROYECTO COMPLETADO EXITOSAMENTE**
 
 El desarrollo de la **MaintenanceLog API RESTful** cumple y supera todos los objetivos establecidos, demostrando dominio técnico completo en el stack de tecnologías modernas de desarrollo backend.
 
-**🎯 Este proyecto sirve como portfolio técnico sólido y evidencia concreta de capacidades para el mercado laboral en desarrollo de software.**
+**Este proyecto sirve como portfolio técnico sólido y evidencia concreta de capacidades para el mercado laboral en desarrollo de software.**
 
 ---
 
 <div style="text-align: center; page-break-before: always;">
-  <h2>📋 REPORTE EJECUTIVO TÉCNICO FINALIZADO</h2>
+  <h2>REPORTE EJECUTIVO TÉCNICO FINALIZADO</h2>
   <h3>API RESTful MaintenanceLog</h3>
   <br>
   <p><strong>Desarrollado por:</strong> Paredes</p>
   <p><strong>Universidad:</strong> ESPE - Escuela Politécnica del Ejército</p>
   <p><strong>Materia:</strong> Sistemas Distribuidos</p>
   <p><strong>Fecha:</strong> Diciembre 2024</p>
-  <p><strong>Estado:</strong> ✅ COMPLETADO EXITOSAMENTE</p>
+  <p><strong>Estado:</strong> COMPLETADO EXITOSAMENTE</p>
   <br>
   <p><em>Documento generado para evaluación académica y referencia técnica</em></p>
   <p><strong>Versión:</strong> 1.0 Final</p>

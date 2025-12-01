@@ -236,7 +236,7 @@ docker build --no-cache -t paredes/maintenance-log-api:1.0 .
 - [ ] Docker disponible
 - [ ] Puertos 8080 y 3306 libres
 - [ ] Proyecto clonado/descargado
-- [ ] Configurar MySQL (`setup-mysql.sh` o manual)
+- [ ] Configurar MySQL (`setup-mysql.bat/.sh` o manual)
 - [ ] Construir imagen (`build-and-push.sh` o manual)
 - [ ] Ejecutar contenedor de la API
 - [ ] Verificar con `curl http://localhost:8080/api/v1/maintenance-logs`
