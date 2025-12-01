@@ -1,0 +1,517 @@
+{
+  "info": {
+    "name": "MaintenanceLog API - Paredes",
+    "description": "Colección completa de pruebas para la API RESTful de MaintenanceLog\nDesarrollado por: Paredes\nVersión: 1.0\n\nEsta colección incluye:\n- Operaciones CRUD completas\n- Pruebas de validación\n- Casos de error\n- Filtros y búsquedas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0
+    }
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. CRUD Operations",
+      "item": [
+        {
+          "name": "Create MaintenanceLog",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has required fields\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('id');",
+                  "    pm.expect(jsonData).to.have.property('title');",
+                  "    pm.expect(jsonData).to.have.property('date');",
+                  "    pm.expect(jsonData).to.have.property('technician');",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "});",
+                  "",
+                  "// Guardar ID para pruebas posteriores",
+                  "if (pm.response.code === 201) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.collectionVariables.set('logId', jsonData.id);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Mantenimiento preventivo servidor\",\n  \"description\": \"Revisión general del servidor principal y actualización de componentes\",\n  \"date\": \"2024-12-01\",\n  \"technician\": \"Juan Pérez\",\n  \"status\": \"PENDING\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance-logs",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance-logs"]
+            },
+            "description": "Crear un nuevo log de mantenimiento"
+          }
+        },
+        {
+          "name": "Get All MaintenanceLogs",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response is an array\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 2000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance-logs",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance-logs"]
+            },
+            "description": "Obtener todos los logs de mantenimiento"
+          }
+        },
+        {
+          "name": "Get MaintenanceLog by ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has correct ID\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    var expectedId = parseInt(pm.collectionVariables.get('logId'));",
+                  "    pm.expect(jsonData.id).to.eql(expectedId);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance-logs/{{logId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance-logs", "{{logId}}"]
+            },
+            "description": "Obtener un log específico por ID"
+          }
+        },
+        {
+          "name": "Update MaintenanceLog",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Status was updated\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.eql('IN_PROGRESS');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"IN_PROGRESS\",\n  \"description\": \"Mantenimiento en progreso - Se están actualizando los componentes del servidor\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance-logs/{{logId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance-logs", "{{logId}}"]
+            },
+            "description": "Actualizar un log de mantenimiento existente"
+          }
+        }
+      ],
+      "description": "Operaciones básicas CRUD para MaintenanceLog"
+    },
+    {
+      "name": "2. Search & Filter Operations",
+      "item": [
+        {
+          "name": "Get Logs by Status",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"All logs have correct status\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    jsonData.forEach(function(log) {",
+                  "        pm.expect(log.status).to.eql('IN_PROGRESS');",
+                  "    });",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance-logs/status/IN_PROGRESS",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance-logs", "status", "IN_PROGRESS"]
+            },
+            "description": "Buscar logs por estado específico"
+          }
+        },
+        {
+          "name": "Get Logs by Technician",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"All logs have correct technician\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    jsonData.forEach(function(log) {",
+                  "        pm.expect(log.technician.toLowerCase()).to.include('juan');",
+                  "    });",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance-logs/technician/Juan",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance-logs", "technician", "Juan"]
+            },
+            "description": "Buscar logs por técnico"
+          }
+        },
+        {
+          "name": "Get Logs by Date Range",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response is an array\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.be.an('array');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance-logs/date-range?startDate=2024-11-01&endDate=2024-12-31",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance-logs", "date-range"],
+              "query": [
+                {
+                  "key": "startDate",
+                  "value": "2024-11-01"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2024-12-31"
+                }
+              ]
+            },
+            "description": "Buscar logs por rango de fechas"
+          }
+        },
+        {
+          "name": "Search Logs by Title",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"All logs contain search term in title\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    jsonData.forEach(function(log) {",
+                  "        pm.expect(log.title.toLowerCase()).to.include('mantenimiento');",
+                  "    });",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance-logs/search?title=mantenimiento",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance-logs", "search"],
+              "query": [
+                {
+                  "key": "title",
+                  "value": "mantenimiento"
+                }
+              ]
+            },
+            "description": "Buscar logs por título"
+          }
+        }
+      ],
+      "description": "Operaciones de búsqueda y filtrado"
+    },
+    {
+      "name": "3. Validation Tests",
+      "item": [
+        {
+          "name": "Create Log - Missing Title (Error)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});",
+                  "",
+                  "pm.test(\"Error message contains validation error\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('error');",
+                  "    pm.expect(jsonData.error).to.eql('Validation Failed');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Log sin título para probar validación\",\n  \"date\": \"2024-12-01\",\n  \"technician\": \"Test Technician\",\n  \"status\": \"PENDING\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance-logs",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance-logs"]
+            },
+            "description": "Probar validación - título requerido"
+          }
+        },
+        {
+          "name": "Create Log - Invalid Status (Error)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Test con estado inválido\",\n  \"description\": \"Probando validación de estado\",\n  \"date\": \"2024-12-01\",\n  \"technician\": \"Test Technician\",\n  \"status\": \"INVALID_STATUS\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance-logs",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance-logs"]
+            },
+            "description": "Probar validación - estado inválido"
+          }
+        }
+      ],
+      "description": "Pruebas de validación y manejo de errores"
+    },
+    {
+      "name": "4. Error Handling Tests",
+      "item": [
+        {
+          "name": "Get Non-existent Log (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});",
+                  "",
+                  "pm.test(\"Error response has correct structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('timestamp');",
+                  "    pm.expect(jsonData).to.have.property('status', 404);",
+                  "    pm.expect(jsonData).to.have.property('error', 'Not Found');",
+                  "    pm.expect(jsonData).to.have.property('message');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance-logs/99999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance-logs", "99999"]
+            },
+            "description": "Probar error 404 para log inexistente"
+          }
+        },
+        {
+          "name": "Update Non-existent Log (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"COMPLETED\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance-logs/99999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance-logs", "99999"]
+            },
+            "description": "Probar error 404 al actualizar log inexistente"
+          }
+        }
+      ],
+      "description": "Pruebas de manejo de errores"
+    },
+    {
+      "name": "5. Cleanup",
+      "item": [
+        {
+          "name": "Delete MaintenanceLog",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});",
+                  "",
+                  "pm.test(\"Response body is empty\", function () {",
+                  "    pm.expect(pm.response.text()).to.be.empty;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/maintenance-logs/{{logId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "maintenance-logs", "{{logId}}"]
+            },
+            "description": "Eliminar el log creado en las pruebas"
+          }
+        }
+      ],
+      "description": "Limpieza de datos de prueba"
+    }
+  ]
+}
+
