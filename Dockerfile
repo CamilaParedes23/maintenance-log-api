@@ -1,45 +1,46 @@
-# Dockerfile para MaintenanceLog API - Versión Standalone
-FROM eclipse-temurin:17-jdk-alpine
+# ---------- ETAPA 1: BUILD ----------
+FROM eclipse-temurin:17-jdk-alpine AS builder
 
-# Información del mantenedor
-LABEL maintainer="paredes@espe.edu.ec"
-LABEL version="1.0"
-LABEL description="API RESTful para gestión de logs de mantenimiento - Standalone"
-
-# Instalar dependencias necesarias
-RUN apk add --no-cache bash
-
-# Crear directorio de trabajo
 WORKDIR /app
 
-# Copiar los archivos de Gradle
+# Copiar solo archivos necesarios para descargar dependencias primero
 COPY gradlew .
 COPY gradle gradle
-COPY build.gradle .
 COPY settings.gradle .
+COPY build.gradle .
 
-# Hacer el gradlew ejecutable
+# Permisos
 RUN chmod +x ./gradlew
 
-# Copiar el código fuente
+# Pre-descargar dependencias usando el cache (no compila)
+RUN ./gradlew build -x test --no-daemon || true
+
+# Copiar el código fuente (esto invalida la cache solo si cambia src/)
 COPY src src
 
-# Construir la aplicación
-RUN ./gradlew build -x test
+# Compilar la aplicación
+RUN ./gradlew build -x test --no-daemon
 
-# Crear usuario no-root para seguridad
+
+# ---------- ETAPA 2: RUN ----------
+FROM eclipse-temurin:17-jre-alpine
+
+WORKDIR /app
+
+# Copiar solo el .jar generado, imagen más ligera
+COPY --from=builder /app/build/libs/*SNAPSHOT.jar app.jar
+
+# Crear usuario no-root
 RUN addgroup -g 1000 appgroup && adduser -u 1000 -G appgroup -s /bin/sh -D appuser
-RUN chown -R appuser:appgroup /app
 USER appuser
 
-# Exponer el puerto
 EXPOSE 8080
 
-# Variables de entorno por defecto (pueden ser sobrescritas al ejecutar)
+# Variables de entorno por defecto
 ENV SPRING_PROFILES_ACTIVE=docker
-ENV SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/maintenance_log_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+ENV SPRING_DATASOURCE_URL=jdbc:mysql://mysql-maintenance:3306/maintenance_log_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
 ENV SPRING_DATASOURCE_USERNAME=root
 ENV SPRING_DATASOURCE_PASSWORD=root
 
-# Comando para ejecutar la aplicación
-CMD ["java", "-jar", "build/libs/Paredes_MaintenanceLog-0.0.1-SNAPSHOT.jar"]
+# Ejecutar la aplicación
+CMD ["java", "-jar", "app.jar"]

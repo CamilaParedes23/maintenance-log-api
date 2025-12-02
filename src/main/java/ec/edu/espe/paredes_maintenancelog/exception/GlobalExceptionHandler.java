@@ -11,12 +11,6 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Manejador global de excepciones
- *
- * @author Paredes
- * @version 1.0
- */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
